@@ -1,0 +1,84 @@
+﻿@model System.Collections.Generic.List<string>
+@{
+    ViewBag.Title = "DetailsPanier";
+}
+
+<h1> Votre Panier </h1>
+
+
+
+<div class="form-horizontal">
+    <br />
+    <div class="form-group">
+        <br /><br />
+
+        <table class="table table-responsive" style="width:600px" border="1" cellpadding="4">
+
+
+
+
+
+            <tr>
+
+                <td style="font-weight:bold;">
+
+                    @Html.DisplayName("Description")
+                </td>
+
+                <td style="font-weight:bold;">
+
+                    @Html.DisplayName("Name")
+
+                </td>
+
+
+
+                <td style="font-weight:bold;">
+
+                    @Html.DisplayName("Price")
+                </td>
+
+
+                <td style="font-weight:bold;">
+
+
+
+                    @Html.DisplayName("Status")
+
+                </td>
+
+
+            </tr>
+            <tr>
+
+                @foreach (var row in Model)
+
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => row)
+
+                    </td>
+
+
+
+                }
+
+
+            </tr>
+
+
+
+        </table>
+        <br /><br /><br /><br /><br />
+    </div>
+    <br /><br />
+          <div>
+              @Html.ActionLink("Create Facture", "CreateFacturePdf")
+              @Html.ActionLink("Payer", "addCustomer", "Stripe")
+
+          </div>
+
+</div>
+
+
+
