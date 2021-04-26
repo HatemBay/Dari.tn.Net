@@ -2,8 +2,19 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_FrontLayout.cshtml";
 }
+
+<section id="banner">
+    <!-- Slider -->
+    <div id="demo-1" data-zs-src='["/Content/img/photos/img1.jpg", "/Content/img/photos/img2.jpg", "/Content/img/photos/img3.jpg"]' data-zs-overlay="dots">
+        <div class="demo-inner-content">
+            <h1><span>HillSide</span></h1><br/>
+            <p>World class Real estate Venture</p>
+        </div>
+    </div>
+    <!-- end slider -->
+</section>
 
 <h2>Index</h2>
 
@@ -37,7 +48,7 @@
             @Html.DisplayNameFor(model => model.payed)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.user.Id)
+            @Html.DisplayNameFor(model => model.chargeId)
         </th>
         <th></th>
     </tr>
@@ -69,12 +80,12 @@
             @Html.DisplayFor(modelItem => item.payed)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.user.Id)
+            @Html.DisplayFor(modelItem => item.chargeId)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
 }

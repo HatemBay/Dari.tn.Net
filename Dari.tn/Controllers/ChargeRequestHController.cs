@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Dari.tn.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Mvc;
 
@@ -8,6 +11,19 @@ namespace Dari.tn.Controllers
 {
     public class ChargeRequestHController : Controller
     {
+
+        HttpClient httpClient;
+        string baseAddress;
+        public ChargeRequestHController()
+        {
+            baseAddress = "http://localhost:8000/charge/";
+            httpClient = new HttpClient();
+            httpClient.BaseAddress = new Uri(baseAddress);
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            //var _AccessToken = Session["AccessToken"];
+            //httpClient.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer {0}", _AccessToken));
+        }
+
         // GET: ChargeRequestH
         public ActionResult Index()
         {
@@ -28,12 +44,13 @@ namespace Dari.tn.Controllers
 
         // POST: ChargeRequestH/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(ChargeRequestH chargeRequest)
         {
+            Subscription s = TempData["subscription"] as Subscription;
             try
             {
-                // TODO: Add insert logic here
-
+                var APIResponse = httpClient.PostAsJsonAsync<ChargeRequestH>(baseAddress + "sub/" + s.Id,
+                    chargeRequest).ContinueWith(postTask => postTask.Result.EnsureSuccessStatusCode());
                 return RedirectToAction("Index");
             }
             catch
@@ -85,5 +102,6 @@ namespace Dari.tn.Controllers
                 return View();
             }
         }
+
     }
 }

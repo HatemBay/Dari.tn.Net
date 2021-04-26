@@ -5,7 +5,7 @@ namespace Dari.tn.Models
 {
     public class Contract
     {
-		public int contractId { get; set; }
+		public long contractId { get; set; }
 		public int duration { get; set; }
 		public DateTime startDate { get; set; }
 		public double price { get; set; }

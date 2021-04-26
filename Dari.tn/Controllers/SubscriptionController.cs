@@ -58,7 +58,10 @@ namespace Dari.tn.Controllers
             {
                 var APIResponse = httpClient.PostAsJsonAsync<Subscription>(baseAddress + "affect-sub-seller/" + 1,
                 subscription).ContinueWith(postTask => postTask.Result.EnsureSuccessStatusCode());
-                return RedirectToAction("Index");
+                var result = APIResponse.Result.Content;
+                UpdateModel(result);
+                TempData["subscription"] = result;
+                return RedirectToAction("Create", "ChargeRequestH");
             }
             catch
             {

@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Dari.tn.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Mvc;
 
@@ -8,10 +11,33 @@ namespace Dari.tn.Controllers
 {
     public class SurveillanceImagesController : Controller
     {
+
+        HttpClient httpClient;
+        string baseAddress;
+        public SurveillanceImagesController()
+        {
+            baseAddress = "http://localhost:8000/contract/";
+            httpClient = new HttpClient();
+            httpClient.BaseAddress = new Uri(baseAddress);
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            //var _AccessToken = Session["AccessToken"];
+            //httpClient.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer {0}", _AccessToken));
+        }
+
         // GET: SurveillanceImages
         public ActionResult Index()
         {
-            return View();
+            var tokenResponse = httpClient.GetAsync(baseAddress + 1 + "/surveillance/get-all").Result;
+            if (tokenResponse.IsSuccessStatusCode)
+            {
+                var contracts = tokenResponse.Content.ReadAsAsync<IEnumerable<SurveillanceImages>>().Result;
+
+                return View(contracts);
+            }
+            else
+            {
+                return View(new List<SurveillanceImages>());
+            }
         }
 
         // GET: SurveillanceImages/Details/5

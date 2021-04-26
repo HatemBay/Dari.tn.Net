@@ -124,7 +124,7 @@ namespace Dari.tn.Controllers
         public ActionResult Download()
         {
             var tokenResponse = httpClient.GetAsync(baseAddress + "download/contract_pdf");
-            using (var fileStream = new FileStream(HostingEnvironment.MapPath(string.Format("~/Download", "")), FileMode.CreateNew))
+            using (var fileStream = new FileStream(HostingEnvironment.MapPath(string.Format("~/real-estate-purchase-agreement.pdf", "")), FileMode.CreateNew))
             {
                 tokenResponse.Result.Content.CopyToAsync(fileStream);
             }
