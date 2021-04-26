@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_BackLayout.cshtml";
 }
 
 <h2>Index</h2>
@@ -30,9 +30,6 @@
         <th>
             @Html.DisplayNameFor(model => model.payed)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.user.Id)
-        </th>
         <th></th>
     </tr>
 
@@ -57,13 +54,9 @@
             @Html.DisplayFor(modelItem => item.payed)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.user.Id)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.contractId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.contractId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.contractId })|
-            @Html.ActionLink("Download", "Download")
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
 }
