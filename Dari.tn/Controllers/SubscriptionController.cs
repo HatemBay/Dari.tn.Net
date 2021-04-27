@@ -56,11 +56,26 @@ namespace Dari.tn.Controllers
         {
             try
             {
+                if (Request.Form["3months"] != null)
+                {
+                    subscription.duration = 3;
+                    subscription.price = 15;
+                }
+                else if(Request.Form["6months"] != null)
+                {
+                    subscription.duration = 6;
+                    subscription.price = 25;
+
+                }
+                else
+                {
+                    subscription.duration = 12;
+                    subscription.price = 30;
+                }
                 var APIResponse = httpClient.PostAsJsonAsync<Subscription>(baseAddress + "affect-sub-seller/" + 1,
                 subscription).ContinueWith(postTask => postTask.Result.EnsureSuccessStatusCode());
                 var result = APIResponse.Result.Content;
-                UpdateModel(result);
-                TempData["subscription"] = result;
+                TempData["subscription"] = subscription;
                 return RedirectToAction("Create", "ChargeRequestH");
             }
             catch

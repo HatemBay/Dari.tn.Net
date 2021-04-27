@@ -39,8 +39,8 @@ h3, h4, h5, h6 {
 	color: #212121;
 	margin-bottom: 20px;
 }
-input, button, select, textarea { 
-    border-radius: 0px !important;
+input, button, select, textarea {
+    border-radius: 2px !important;
 }
 .timetable{background: #2ab975;padding: 5px 23px;}
 .timetable hr{
@@ -1004,7 +1004,7 @@ blockquote cite a:visited 				{ color:#555; }
 }
 
 /* --- button --- */
-.btn{text-align: center;color: #FFFFFF;background: #e91e63;border-color: #e91e63;width: 120px;border-radius: 0;}
+.btn{text-align: center;/* color: #FFFFFF; */background: #e91e63;border-color: #e91e63;width: 120px;border-radius: 0;}
 .btn-theme {
 	color: #fff;
 	background: transparent;
@@ -1729,7 +1729,6 @@ header  .navbar-nav > li > a{
 	  top: 0;
 	  left: 40px;
 	  z-index: 1000;
-	  display: none;
 	  float: left;
 	  min-width: 160px;
 	  padding: 5px 0;

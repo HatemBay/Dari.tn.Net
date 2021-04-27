@@ -41,6 +41,22 @@ namespace Dari.tn.Controllers
             }
         }
 
+        // GET: Contract
+        public ActionResult GetOwned()
+        {
+            var tokenResponse = httpClient.GetAsync(baseAddress + "getByUser/" + 1).Result;
+            if (tokenResponse.IsSuccessStatusCode)
+            {
+                var contracts = tokenResponse.Content.ReadAsAsync<IEnumerable<Contract>>().Result;
+
+                return View(contracts);
+            }
+            else
+            {
+                return View(new List<Contract>());
+            }
+        }
+
         // GET: Contract/Details/5
         public ActionResult Details(int id)
         {
@@ -68,9 +84,18 @@ namespace Dari.tn.Controllers
         {
             try
             {
-                var APIResponse = httpClient.PostAsJsonAsync<Contract>(baseAddress + "affect-contract-seller/" + 3,
-                contract).ContinueWith(postTask => postTask.Result.EnsureSuccessStatusCode());
-                return RedirectToAction("Index");
+                var APIResponse = httpClient.PostAsJsonAsync<Contract>(baseAddress + "affect-contract-seller/" + 1,
+                contract).Result;
+                if (APIResponse.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("CreateContract", "ChargeRequestH");
+                }
+                else 
+                {
+                    ModelState.AddModelError("duration", "You are not subscribed, please subscribe to initiate contracts!");
+                    ModelState.AddModelError("startDate", "Or maybe check whether you inserted a future date!");
+                    return View();
+                }
 
             }
             catch

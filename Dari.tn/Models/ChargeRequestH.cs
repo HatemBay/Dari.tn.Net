@@ -9,6 +9,7 @@ namespace Dari.tn.Models
         public int amount { get; set; }
         public Currency currency { get; set; }
         [EmailAddress]
+        [Required]
         public string stripeEmail { get; set; }
         public string stripeToken { get; set; }
         public int? contractId { get; set; }
