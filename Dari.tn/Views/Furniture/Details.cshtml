@@ -1,0 +1,58 @@
+﻿@model Dari.tn.Models.Furniture
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Details</h2>
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dd>
+
+            <img src="@Url.Content("~/Image/"+Model.image) " width="150" height="150" />
+
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditProduct", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<br />
+<br />
+
+<div>
+    @Html.ActionLink("Add to cart", "CreatePanier")
+
+    
+</div>
+
+

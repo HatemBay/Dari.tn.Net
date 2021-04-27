@@ -1,0 +1,105 @@
+﻿@model System.Collections.Generic.List<string>
+@{
+    ViewBag.Title = "DetailsPanier";
+}
+
+<h1> Votre Panier </h1>
+
+
+
+<div class="form-horizontal">
+    <br />
+    <div class="form-group">
+        <br /><br />
+        @if (Model != null)
+        {
+            <table class="table table-responsive" style="width:600px" border="1" cellpadding="4">
+
+
+
+
+
+                <tr>
+
+                    <td style="font-weight:bold;">
+
+                        @Html.DisplayName("Description")
+                    </td>
+
+                    <td style="font-weight:bold;">
+
+                        @Html.DisplayName("Name")
+
+                    </td>
+
+
+
+                    <td style="font-weight:bold;">
+
+                        @Html.DisplayName("Price")
+                    </td>
+
+
+                    <td style="font-weight:bold;">
+
+
+
+                        @Html.DisplayName("Status")
+
+                    </td>
+
+
+                </tr>
+                <tr>
+
+                    @foreach (var row in Model)
+
+                    {
+
+                        <td>
+                            @Html.DisplayFor(modelItem => row)
+
+                        </td>
+
+
+
+                    }
+
+
+                </tr>
+
+                @*<caption>
+                    <p style="font-weight:bold;"> Quantity : 1 </p> <br />
+                    <p style="font-weight:bold;"> Total : @Model[2] </p> <br />
+                    <p> </p>
+                </caption>*@
+
+            </table>
+
+            <div>
+                @Html.ActionLink("Create Facture", "CreateFacturePdf") <br />
+                @*@Html.ActionLink("Payer", "addCustomer", "Stripe")
+        @Html.ActionLink("Empty the cart", "ViderPanier")*@
+                @Html.ActionLink("Buy this furniture", "Acheter")
+            </div>
+        }
+        else
+        {
+            <div>
+                <p>
+                    Votre panier est vide
+                </p>
+            </div>
+
+        }
+
+
+        <br /><br /><br /><br /><br />
+    </div>
+    <br /><br />
+         
+
+</div>
+
+
+

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Dari.tn.Models.Livreur>
+@{
+    ViewBag.Title = "Index";
+}
+
+    <div class="form-horizontal">
+        <h2> All delivery Man</h2>
+        <hr />
+        <div class="form-group">
+
+
+            <table class="table table-responsive" style="width:400px">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.nom)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.prenom)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.telephone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.nbMission)
+                    </th>
+
+
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.nom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.prenom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.telephone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.nbMission)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditProduct", new { id = item.id, nom = item.nom, prenom = item.prenom, email = item.email, telephone = item.telephone , lieuxTravail = item.lieuxTravail }) <br />
+                            @Html.ActionLink("Details", "Details", new { id = item.id}) <br />
+                            @Html.ActionLink("Delete", "Delete", new { id = item.id })<br />
+                        </td>
+                    </tr>
+
+                }
+
+            </table>
+
+        </div>
+    </div> 
