@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_FrontLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form">
+        @model List<string>
+        <div class="col-md-10">
+
+            @Html.DropDownList(
+            "camName", new SelectList(
+            Model.Select(x => new { Value = x, Text = x }),
+            "Value",
+            "Text"
+            ),
+            new
+            {
+                     style = @"display: block !important;",
+                onchange = @"
+                            var form = document.forms[0];
+                            form.action='Details';
+                            form.submit();"
+            })
+        </div>
+        <br />
+        <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+    </div>
+}
+
