@@ -69,7 +69,7 @@ namespace Dari.tn.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Models.Furniture furniture, Models.Delivery del)
+        public ActionResult Create(Models.Furniture furniture, Models.FileImage del)
         {
             string filename = Path.GetFileNameWithoutExtension(del.Imagefile.FileName);
             string d = filename;
@@ -213,13 +213,27 @@ namespace Dari.tn.Controllers
             responseaffecterLC_A_Commande.EnsureSuccessStatusCode();
 
 
-            //HttpResponseMessage responseaddPanier = PutResponse("addMeubleDansPanier12/1/1/1", "");
+            HttpResponseMessage responseaddPanier = PutResponse("addMeubleDansPanier12/1/1/1", "");
 
-            //responseaddPanier.EnsureSuccessStatusCode();
+            responseaddPanier.EnsureSuccessStatusCode();
 
             return RedirectToAction("DetailsPanier");
 
         }
+
+
+        public ActionResult ViderPanier(Models.LigneCommande lignec, Models.Commande commande)
+        {
+
+
+            HttpResponseMessage responseaddPanier = DeleteResponse("deleteMeubleFromPanier12/1/1");
+
+            responseaddPanier.EnsureSuccessStatusCode();
+
+            return RedirectToAction("DetailsPanier");
+
+        }
+
 
 
 
@@ -294,8 +308,15 @@ namespace Dari.tn.Controllers
 
 
 
+        public ActionResult Acheter()
+        {
 
-       
+
+
+            return View();
+
+        }
+
 
 
 

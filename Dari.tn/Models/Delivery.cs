@@ -14,7 +14,7 @@ namespace Dari.tn.Models
 			Approved
 		}
 
-		public HttpPostedFileBase Imagefile { get; set; }
+		
 
 		public long deliveryId { get; set; }
 

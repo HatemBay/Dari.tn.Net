@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Acheter";
+}
+
+<h1>Buy the furniture</h1>
+
+<div>
+    <p>
+        You can buy with your credit card or by home delivery.  <br />
+        choose what you want.
+    </p>
+    <br />
+    <select id="UrlList" onchange="doNavigate()">
+        <option>By Delivery</option>
+        <option value="@Url.Action("addCustomer", "Stripe")">By Card</option>
+
+
+
+    </select>
+
+
+    <script>
+        function doNavigate() {
+            window.location.href = document.getElementById("UrlList").value;
+        }
+    </script>
+</div>
