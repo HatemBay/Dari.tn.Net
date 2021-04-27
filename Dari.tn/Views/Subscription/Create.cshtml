@@ -1,0 +1,117 @@
+﻿@model Dari.tn.Models.Subscription
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_FrontLayout.cshtml";
+}
+
+<h2 class="aligncenter">Subsciption Offers</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form" style="margin: auto; width: 60%; padding: 10px;">
+        @*<div class="form-group card-deck mb-3 text-center" style="margin: auto; width: 60%; padding: 10px;">
+            <div class="card mb-4 mdi-box-shadow" style="width:480px;">
+                <div class="card-header" style="background-color: #808080; height: 30px;">
+                    <h4 class="my-0 font-weight-bold">
+                        3 Months Pack
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title">
+                        15Dt
+                    </h1>
+                    <h4 class="my-0 font-weight-light">
+                    </h4>
+                    <div class="form-group">
+                        <input type="submit" name="3months" value="Buy" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-4 mdi-box-shadow" style="width:480px;">
+                <div class="card-header" style="margin-top: 10px; background-color: #808080; height: 30px;">
+                    <h4 class="my-0 font-weight-bold">
+                        6 Months Pack
+                    </h4>
+                </div>
+                <div class="form-groupcard-body">
+                    <h1 class="card-title pricing-card-title">
+                        25Dt
+                    </h1>
+                    <h5 class="my-0 font-weight-light">
+                        Save up to 5Dt
+                    </h5>
+                    <input type="submit" name="6months" value="Buy" class="btn btn-default" />
+                </div>
+            </div>
+            <div class="card mb-4 box-shasow" style="width:480px;">
+                <div class="card-header" style="margin-top: 10px; background-color: #808080; height: 30px;">
+                    <h4 class="my-0 font-weight-bold" style="padding: 5px;">
+                        1 Year Pack
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title">
+                        30Dt
+                    </h1>
+                    <h5 class="my-0 font-weight-light">
+                        Save up to 30Dt
+                    </h5>
+                    <div class="form-group">
+                        <input type="submit" name="12months" value="Buy" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>*@
+        <div class="row">
+            <div class="col-sm-4 text-center">
+                <div class="card" style="background: rgb(236,236,236); background: linear-gradient(312deg, rgba(236,236,236,1) 0%, rgba(247,247,247,0.8407738095238095) 100%);">
+                    <div class="card-title">3 Months Pack</div>
+                    <div class="card-body">
+                        <h5 class="card-title">15Dt</h5>
+                        <p class="card-text"><br /></p>
+                        <div class="form-group">
+                            <input type="submit" name="3months" value="Buy" class="btn btn-default" style="border-radius:4px !important;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 text-center">
+                <div class="card text-white" style="background: rgb(192,192,192); background: linear-gradient(312deg, rgba(192,192,192,1) 0%, rgba(255,255,255,1) 38%, rgba(255,255,255,1) 40%, rgba(192,192,192,1) 100%);">
+                    <div class="card-title">6 Months Pack</div>
+                    <div class="card-body">
+                        <h5 class="card-title">25Dt</h5>
+                        <p class="card-text text-center">Save up to 5Dt</p>
+                        <div class="form-group">
+                            <input type="submit" name="6months" value="Buy" class="btn btn-default" style="border-radius:4px !important;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 text-center">
+                <div class="card" style="background: rgb(212,175,55); background: linear-gradient(312deg, rgba(212,175,55,1) 0%, rgba(255,255,255,1) 38%, rgba(255,255,255,1) 40%, rgba(212,175,55,1) 100%);">
+                    <div class="card-title">1 Year Pack</div>
+                    <div class="card-body">
+                        <h5 class="card-title">30Dt</h5>
+                        <p class="card-text text-center">Save up to 30Dt</p>
+                        <div class="form-group">
+                            <input type="submit" name="12months" value="Buy" class="btn btn-default" style="border-radius:4px !important;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.duration, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.duration, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.duration, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+
+}
+
