@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Searching";
+    Layout = "~/Views/Shared/_FrontLayout.cshtml";
+}
+
+<h2>Searching</h2>
+
+<br />
+@Html.ActionLink("Search price", "Between", "Offer")
+<br />
+@Html.ActionLink("Search price between 2 numbers", "BetweenStuff", "Offer")
+<br />
+@Html.ActionLink("Search by Name", "SearchByName", "Offer")
+<br />
+@Html.ActionLink("Global Seach", "GlobalSearch", "Offer")
+<br />
+@Html.ActionLink("Special Search", "SaveHistory", "Offer")
+

@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Dari.tn.Models.OfferFav>
+
+
+@{
+    ViewBag.Title = "SellerFav";
+    Layout = "~/Views/Shared/_BackLayout.cshtml";
+}
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.offer.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.offer.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.offer.adress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.offer.chamNb)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.offer.space)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.offer.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.offer.levelNb)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.offer.startD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.offer.endD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.offer.pool)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.offer.type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.offer.airC)
+        </th>
+        <th></th>
+
+
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.offer.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.offer.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.offer.adress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.offer.chamNb)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.offer.space)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.offer.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.offer.levelNb)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.offer.startD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.offer.endD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.offer.pool)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.offer.type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.offer.airC)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.offerId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.offerId }) |
+                @Html.ActionLink("DeleteFav", "DeleteFav", new { id = item.offerId })
+            </td>
+        </tr>
+    }
+    </table>
+
+

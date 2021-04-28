@@ -1,0 +1,29 @@
+﻿@model Dari.tn.Models.Seller
+
+
+@{
+    ViewBag.Title = "AffectSeller2Offer";
+    Layout = "~/Views/Shared/_BackLayout.cshtml";
+}
+<h2>Affect Offer to Seller</h2>
+
+<form method="post">
+    Offer Selected : <input type="text" id="offer" name="offer" />
+    <div class="form-group" hidden>
+        @Html.LabelFor(model => model.sellerId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10" id="seller" name="seller">
+            @Html.EditorFor(model => model.sellerId, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.sellerId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Save" class="btn btn-default" />
+    </div>
+</form>
+
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Dari.tn.Models.Seller>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_BackLayout.cshtml";
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.sellerId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.sellerId }) |
+                @Html.ActionLink("SellerStats", "SellerStats", new { id = item.sellerId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.sellerId }) |
+                @Html.ActionLink("SellerFav", "SellerFav", new { id = item.sellerId }) |
+                @Html.ActionLink("Fav", "Fav", new { id = item.sellerId }) |
+                @Html.ActionLink("AffectSeller2Offer", "AffectSeller2Offer", new { id = item.sellerId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.ActionLink("Offer List", "Index", "Offer")
+
+

@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Delete";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_FrontLayout.cshtml";
 }
 
 <h2>Delete</h2>
@@ -13,19 +13,19 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
+            @Html.DisplayNameFor(model => model.firstName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.FirstName)
+            @Html.DisplayFor(model => model.firstName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Lastname)
+            @Html.DisplayNameFor(model => model.lastname)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Lastname)
+            @Html.DisplayFor(model => model.lastname)
         </dd>
 
         <dt>
@@ -37,28 +37,21 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Email)
+            @Html.DisplayNameFor(model => model.email)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Email)
+            @Html.DisplayFor(model => model.email)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Password)
+            @Html.DisplayNameFor(model => model.password)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Password)
+            @Html.DisplayFor(model => model.password)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.subId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.subId)
-        </dd>
 
     </dl>
 
