@@ -66,12 +66,6 @@ namespace Dari.tn.Controllers
         {
             try
             {
-                var APIResponse = httpClient.PostAsJsonAsync<Insurance>(baseAddress + "affect-insurance-seller/" + 4,
-                insurance).ContinueWith(postTask => postTask.Result.EnsureSuccessStatusCode());
-                //Insurance ins = APIResponse.Result.Content.ReadAsAsync<Insurance>().Result;
-                //Console.WriteLine(ins.insId);
-                //var APIResponse2 = httpClient.PutAsJsonAsync<Insurance>(baseAddress + "affect-insurance-seller/" + ins.insId + "/" + 4,
-                //null).ContinueWith(postTask => postTask.Result.EnsureSuccessStatusCode());
                 return RedirectToAction("Index");
 
             }

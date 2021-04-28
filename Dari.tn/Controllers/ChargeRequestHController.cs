@@ -46,12 +46,60 @@ namespace Dari.tn.Controllers
         [HttpPost]
         public ActionResult Create(ChargeRequestH chargeRequest)
         {
-            Subscription s = TempData["subscription"] as Subscription;
+            //Subscription s = TempData["subscription"] as Subscription;
+            //TempData["sub"] = s.price.ToString();
+            var tokenResponse = httpClient.GetAsync("http://localhost:8000/subs/getlast").Result;
+            var sub = tokenResponse.Content.ReadAsStringAsync().Result;
             try
             {
-                var APIResponse = httpClient.PostAsJsonAsync<ChargeRequestH>(baseAddress + "sub/" + s.Id,
+                var APIResponse = httpClient.PostAsJsonAsync<ChargeRequestH>(baseAddress + "sub/" + sub,
                     chargeRequest).ContinueWith(postTask => postTask.Result.EnsureSuccessStatusCode());
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Subscription");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: ChargeRequestH/Create
+        public ActionResult CreateContract()
+        {
+            return View();
+        }
+
+        // POST: ChargeRequestH/CreateContract
+        [HttpPost]
+        public ActionResult CreateContract(ChargeRequestH chargeRequest)
+        {
+            var tokenResponse = httpClient.GetAsync("http://localhost:8000/contracts/getLast").Result;
+            var contract = tokenResponse.Content.ReadAsStringAsync().Result;
+            try
+            {
+                var APIResponse = httpClient.PostAsJsonAsync<ChargeRequestH>(baseAddress + "contract/" + contract,
+                    chargeRequest).ContinueWith(postTask => postTask.Result.EnsureSuccessStatusCode());
+                return RedirectToAction("Index", "Subscription");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: ChargeRequestH/Create
+        public ActionResult Pay()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Pay(int id, ChargeRequestH chargeRequest)
+        {
+            try
+            {
+                var APIResponse = httpClient.PostAsJsonAsync<ChargeRequestH>(baseAddress + "contract/" + id,
+                    chargeRequest).ContinueWith(postTask => postTask.Result.EnsureSuccessStatusCode());
+                return RedirectToAction("Index", "Subscription");
             }
             catch
             {

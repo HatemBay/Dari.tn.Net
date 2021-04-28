@@ -25,9 +25,9 @@ namespace Dari.tn.Controllers
 
 
         // GET: Surveillance
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
-            var tokenResponse = httpClient.GetAsync(baseAddress + 1 +"/surveillance/detect-all").Result;
+            var tokenResponse = httpClient.GetAsync(baseAddress + id +"/surveillance/detect-all").Result;
             if (tokenResponse.IsSuccessStatusCode)
             {
                 var cams = tokenResponse.Content.ReadAsAsync<IEnumerable<string>>().Result;
@@ -37,6 +37,22 @@ namespace Dari.tn.Controllers
             else
             {
                 return View(new List<string>());
+            }
+        }
+
+        // GET: Surveillance
+        public ActionResult Stop()
+        {
+            var tokenResponse = httpClient.GetAsync(baseAddress + 1 + "/surveillance/capture/stop").Result;
+            if (tokenResponse.IsSuccessStatusCode)
+            {
+                var cams = tokenResponse.Content.ReadAsAsync<IEnumerable<string>>().Result;
+
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index");
             }
         }
 
